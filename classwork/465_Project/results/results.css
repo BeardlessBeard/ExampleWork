@@ -1,0 +1,94 @@
+body{
+	background: rgb(240, 240, 240);
+}
+
+h1{
+	text-align: center;
+	color: #ff8200;
+	font-family: "Verdana";
+}
+
+h2{
+	color: #58595B;
+	font-family: "Verdana";
+}
+
+label{
+	font-family: "Verdana";
+	color: #58595B;
+}
+
+div.border{
+    border-left: 6px solid #ff8200;
+	background-color: rgb(251, 212, 173);
+	margin: auto auto;
+	margin-left:2px;
+}
+
+textarea{
+	width: 700px
+}
+
+b{
+	color: #58595B;
+	font-family: "Verdana";
+}
+
+input.customAssessment{
+	width: 25%;
+}
+
+.prettySubmit{
+	width: 200px;
+	background-color: #579584;
+	color: white;
+	padding: 15px;
+	margin: 10px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14pt;
+	display: block;
+}
+
+.prettyCancel{
+	width: 200px;
+	background-color: #8D2048;
+	color: white;
+	padding: 15px;
+	margin: 10px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14pt;
+	display: block;
+}
+
+/*.assessmentStuff{
+	width: 250px;
+	background-color: #58595B;
+	color: white;
+	padding: 5px;
+	margin: 5px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14pt;
+	display: block;
+}*/
+
+/*input[type=text] {
+    border-radius: 4px;
+    background-color: rgb(219, 220, 222);
+    border: none;
+    width: 200px;
+    height: 25px;
+}*/
+
+/*.addButtons{
+    border-radius: 4px;
+    background-color: rgb(219, 220, 222);
+    border: none;
+    width: 200px;
+    height: 25px;
+}*/

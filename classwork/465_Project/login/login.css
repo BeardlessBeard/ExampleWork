@@ -1,0 +1,65 @@
+body{
+	background: rgb(240, 240, 240);
+}
+
+h1{
+	text-align: center;
+	color: #ff8200;
+	font-family: "Verdana";
+}
+
+label{
+	color: #58595B;
+	font-family: "Verdana";
+}
+
+div{
+	border-radius: 4px;
+	background: white;
+	margin: auto;
+	max-width: 400px;
+	padding-bottom: 1%;
+	padding-top: 1%;
+}
+
+table{
+	text-align: center;
+	margin: auto auto;
+}
+
+input[type=submit] {
+	width: 250px;
+	background-color: #ff8200;
+	color: white;
+	padding: 15px;
+	margin: 10px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14pt;
+	display: block;
+	margin: auto auto;
+	text-align: center;
+}
+
+input[type=text] {
+	border-radius: 4px;
+	background-color: rgb(219, 220, 222);
+	border: none;
+	width: 200px;
+	height: 25px;
+}
+
+input[type=password]{
+	border-radius: 4px;
+	background-color: rgb(219, 220, 222);
+	border: none;
+	width: 200px;
+	height: 25px;
+}
+
+p{
+	color: red;
+	text-align: center;
+	font-family: "Verdana";
+}

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="results.js"></script>
+<link rel="stylesheet" href="results.css">
+<title>ABET Assessment Results</title>
+</head>
+<body onload=>
+<h1>ABET Assessment Results</h1>
+<form method="post" action="save.php">
+    <div class="border">
+        <label for="classes">Select a class: </label>
+        <select required="required" name="classes" class="classes" id="classes">
+            <option value="">Select a Class</option>
+            <option value="CS312">CS 312</option>
+            <option value="CS395">CS 395</option>
+            <option value="ECE402">ECE 402</option>
+            <option value="ECE325">ECE 325</option>
+        </select>
+        <label for="outcomes">Select an outcome: </label>
+        <select required="required" name="outcomes" class="outcomes" id="outcomes">
+            <option value="">Select an Outcome</option>
+            <option value="C1">CS 312 - Complex Computing</option>
+            <option value="C4">CS 395 - Recognize Professional Responsibilities</option>
+            <option value="C7">All CS Classes - Responsibility and Leadership</option>
+            <option value="C8">All CS Classes - Completing Program</option>
+            <option value="C9">All CS Classes - Professionalism and Ethics</option>
+            <option value="E3">CpE 325 - Communicate Effectively</option>
+            <option value="E4">CpE 325 - Ethics and Responsibilities</option>
+            <option value="E8">All CpE Classes - Responsibility and Leadership</option>
+            <option value="E9">All CpE Classes - Completing Program</option>
+            <option value="E10">All CpE Classes - Professionalism and Ethics</option>
+            <option value="E13">EE 325 - Communicate Effectively</option>
+            <option value="E14">EE 325 - Ethics and Responsibilities</option>
+            <option value="E18">All EE Classes - Responsibility and Leadership</option>
+            <option value="E19">All EE Classes - Completing Program</option>
+            <option value="E20">All EE Classes - Professionalism and Ethics</option>
+        </select>
+    </div>
+    <h2>Outcome: [Insert Outcome Description Here]</h2>
+    <h2>Student Performance Levels</h2>
+    <div class="border">
+        <table>
+            <tr>
+                <td>
+                    <label for="exceedStudents">Number of Students Exceeding Expectations: </label>
+                </td>
+                <td>
+                    <input type="number" required="required" name="exceedStudents" id="exceedStudents" min="0">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="meetStudents">Number of Students Meeting Expectations: </label>
+                </td>
+                <td>
+                    <input type="number" required="required" name="meetStudents" id="meetStudents" min="0">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="notMeetStudents">Number of Students NOT Meeting Expectations: </label>
+                </td>
+                <td>
+                    <input type="number" name="notMeetStudents" required="required" id="notMeetStudents" min="0">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h2>Assessments</h2>
+    <div class="border">
+        <table>
+            <tr>
+                <td>
+                    <label for="assessmentType">Type:</label>
+                </td>
+                <td>
+                    <select required="required"  name="assessmentType[]" class="assessmentType" id="assessmentType1" class="lhs">
+                        <option value="">Select an Assessment</option>
+                        <option value="exam">Exam</option>
+                        <option value="quiz">Quiz</option>
+                        <option value="homework">Homework</option>
+                        <option value="lab">Lab</option>
+                        <option value="programming assignment">Programming Assignment</option>
+                        <option value="project">Project</option>
+                        <option value="written paper">Written Paper</option>
+                        <option value="oral presentation">Oral Presentation</option>
+                        <option value="other">Other (Add Custom)</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="button" value="minimize" onclick="minimize()">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="text" name="customAssessment[]" id="customAssessment1" placeholder="Enter Custom Assessment" class="customAssessment">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="assessmentWeight">Weight:</label>
+                </td>
+                <td>
+                    <input type="number" required="required" name="assessmentWeight[]" id="assessmentWeight1" min="0" max="1" step="0.05" class="lhs">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="assignmentDesc">Description:</label>
+                </td>
+                <td>
+                    <textarea required="required" rows=2 name="assessmentDesc[]" id="assessmentDesc1" placeholder="Enter Description Here"></textarea>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <b>Rubric</b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="exceeds">Exceeds Expectations:</label>
+                </td>
+                <td>
+                    <textarea rows=4 required="required" name="exceeds[]" id="exceeds1" class="req" placeholder="Enter Requirements for Exceeds Expectations"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="meets">Meets Expectations:</label>
+                </td>
+                <td>
+                    <textarea rows=4 required="required" name="meets[]" id="meets1" class="req" placeholder="Enter Requirements for Meets Expectations"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="notMeets">Does Not Meet Expectations:</label>
+                </td>
+                <td>
+                    <textarea rows=4 required="required" name="notMeets[]" id="notMeets1" class="req" placeholder="Enter Requirements for Not Meeting Expectations"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Delete Assessment">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div class="border">
+        <table>
+            <tr>
+                <td>
+                    <label for="assessmentType">Type:</label>
+                </td>
+                <td>
+                    <select required="required" name="assessmentType[]" class="assessmentType" id="assessmentType2" class="lhs">
+                        <option value="other">Other (Add Custom)</option>
+                        <option value="">Select an Assessment</option>
+                        <option value="exam">Exam</option>
+                        <option value="quiz">Quiz</option>
+                        <option value="homework">Homework</option>
+                        <option value="lab">Lab</option>
+                        <option value="programming assignment">Programming Assignment</option>
+                        <option value="project">Project</option>
+                        <option value="written paper">Written Paper</option>
+                        <option value="oral presentation">Oral Presentation</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="button" value="minimize" onclick="minimize()">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="text" name="customAssessment[]" id="customAssessment2" placeholder="Enter Custom Assessment"  class="customAssessment" value="Problets">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="assignmentWeight">Weight:</label>
+                </td>
+                <td>
+                    <input type="number" required="required" name="assessmentWeight[]" id="assessmentWeight2" min="0" max="1" step="0.05" class="lhs" value="0.1">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="assignmentDesc">Description:</label>
+                </td>
+                <td>
+                    <textarea rows=2 required="required" name="assessmentDesc[]" id="assessmentDesc2" placeholder="Enter Description Here">Problets are designed to test a student's individual skills with c++ topics.
+                    </textarea>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <b>Rubric</b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="exceeds">Exceeds Expectations:</label>
+                </td>
+                <td>
+                    <textarea rows=4 name="exceeds[]" required="required" id="exceeds2" class="req" placeholder="Enter Requirements for Exceeds Expectations">Students must get every problet question correct
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="meets">Meets Expectations:</label>
+                </td>
+                <td>
+                    <textarea rows=4 required="required" name="meets[]" id="meets2" class="req" placeholder="Enter Requirements for Meets Expectations">Students must get at least 70% problets correct.
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="notMeets">Does Not Meet Expectations:</label>
+                </td>
+                <td>
+                    <textarea rows=4 required="required" name="notMeets[]" id="notMeets2" class="req" placeholder="Enter Requirements for Not Meeting Expectations">Students must fail to get 70% problets correct.
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Delete Assessment">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <input type="button" value="Create New Assessment" class="assessmentStuff">
+    <input type="button" value="Import Existing Assessment" class="assessmentStuff">
+    <select name="prevAssessments" class="prevAssessments" id="prevAssessments">
+        <option value="default">Select an Assessment</option>
+        <option value="year1">Spring 2017</option>
+        <option value="year2">Fall 2017</option>
+    </select>
+    <h2>Narrative Summary</h2>
+    <div class="border">
+        <table>
+            <tr>
+                <td>
+                    <label for="strengths1">Student Strengths:</label>
+                </td> 
+                <td>
+                    <textarea required="required" rows="2"  name="strengths[]" id="strengths1" placeholder="Enter Student Strengths Here"></textarea>
+                </td>
+                <td>
+                    <input type="button" value="cancel">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea required="required" rows="2"  name="strengths[]" id="strengths2" placeholder="Enter Student Strengths Here">Students are rocking these assignments.</textarea>
+                </td>
+                <td>
+                    <input type="button" value="cancel">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value="Add Student Strength" class="addButtons">
+                </td>
+            </tr>
+            <tr>
+                <td> &nbsp; </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="weak1">Student Weaknesses:</label>
+                </td>
+                <td>
+                    <textarea required="required" rows="2" name="weak[]" id="weak1" placeholder="Enter Student Weaknesses Here"></textarea>
+                </td>
+                <td>
+                    <input type="button" value="cancel">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea required="required" rows="2"  name="weak[]" id="weak2" placeholder="Enter Student Weaknesses Here">Students are physically weak. Need to go to gym more often.
+                    </textarea>
+                </td>
+                <td>
+                    <input type="button" value="cancel">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value="Add Student Weakness" class="addButtons">
+                </td>
+            </tr>
+            <tr>
+                <td> &nbsp; </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="sugg1">Suggested Actions:</label>
+                </td>
+                <td>
+                    <textarea required="required" rows="2" name="sugg[]" id="sugg1" placeholder="Enter Suggested Actions Here"></textarea>
+                </td>
+                <td>
+                    <input type="button" value="cancel">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea required="required" name="sugg[]" id="sugg2" placeholder="Enter Suggested Actions Here">Hit the gym.</textarea>
+                </td>
+                <td>
+                    <input type="button" value="cancel">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value="Add Suggested Action" class="addButtons">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <table class="prettyButtons">
+        <tr>
+            <td>
+                <input type="submit" value="Submit" class="prettySubmit">
+            </td>
+            <td>
+                <input type="button" value="Cancel" class="prettyCancel">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
